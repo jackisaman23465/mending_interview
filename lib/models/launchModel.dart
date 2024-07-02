@@ -5,11 +5,11 @@ import "launchSiteModel.dart";
 import "launchFailureDetailsModel.dart";
 import "linksModel.dart";
 import "timelineModel.dart";
-part 'dataModel.g.dart';
+part 'launchModel.g.dart';
 
 @JsonSerializable()
-class DataModel {
-  DataModel();
+class LaunchModel {
+  LaunchModel();
 
   num? flight_number;
   String? mission_name;
@@ -36,6 +36,6 @@ class DataModel {
   TimelineModel? timeline;
   List? crew;
   
-  factory DataModel.fromJson(Map<String,dynamic> json) => _$DataModelFromJson(json);
-  Map<String, dynamic> toJson() => _$DataModelToJson(this);
+  factory LaunchModel.fromJson(Map<String,dynamic> json) => _$LaunchModelFromJson(json);
+  Map<String, dynamic> toJson() => _$LaunchModelToJson(this);
 }

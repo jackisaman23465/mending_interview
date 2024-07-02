@@ -23,6 +23,7 @@ class LaunchMainPage extends ConsumerStatefulWidget {
 class _LaunchesPageState extends ConsumerState<LaunchMainPage> with AutomaticKeepAliveClientMixin {
   String _searchQuery = '';
   SortStrategy _sortStrategy = SortStrategy.smallToLarge;
+
   // final ScrollController _scrollController = ScrollController();
 
   @override
@@ -39,8 +40,7 @@ class _LaunchesPageState extends ConsumerState<LaunchMainPage> with AutomaticKee
   Widget build(BuildContext context) {
     print("LaunchListPage build");
     super.build(context);
-    final dataListAsyncValue = ref.watch(launchListProvider);
-
+    final launchListAsyncValue = ref.watch(launchListProvider);
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
@@ -87,7 +87,7 @@ class _LaunchesPageState extends ConsumerState<LaunchMainPage> with AutomaticKee
             ),
           ],
         ),
-        body: dataListAsyncValue.when(
+        body: launchListAsyncValue.when(
           data: (dataList) {
             // final itemCount = ref.watch(itemCountProvider);
             // if (itemCount > dataList.length) itemCount = dataList.length;
@@ -173,17 +173,19 @@ class _LaunchesPageState extends ConsumerState<LaunchMainPage> with AutomaticKee
             child: ListView.builder(
               prototypeItem: const LaunchTile(
                 flightNumber: 0,
-                missionPatchURL: "",
+                missionPatchUrl: "",
                 missionName: "",
                 launchDate: "",
+                heroTag: -1,
               ),
               itemCount: 20,
               itemBuilder: (context, index) {
                 return const LaunchTile(
                   flightNumber: 1,
-                  missionPatchURL: "",
+                  missionPatchUrl: "",
                   missionName: "FalconSat",
                   launchDate: "24/03/2006 23:30:00",
+                  heroTag: -1,
                 );
               },
             ),

@@ -1,8 +1,8 @@
 export 'coresModel.dart' ; 
-export 'dataModel.dart' ; 
 export 'fairingsModel.dart' ; 
 export 'firstStageModel.dart' ; 
 export 'launchFailureDetailsModel.dart' ; 
+export 'launchModel.dart' ; 
 export 'launchSiteModel.dart' ; 
 export 'linksModel.dart' ; 
 export 'orbitParamsModel.dart' ; 

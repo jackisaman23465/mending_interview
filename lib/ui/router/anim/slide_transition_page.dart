@@ -21,7 +21,8 @@ class SlideTransitionPage extends CustomTransitionPage {
           transitionsBuilder: (BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation, Widget child) {
             return Container();
           },
-          transitionDuration: const Duration(milliseconds: 250),
+          reverseTransitionDuration: const Duration(milliseconds: 500),
+          transitionDuration: const Duration(milliseconds: 500),
         );
 
   @override
@@ -66,6 +67,7 @@ class SlideTransitionPage extends CustomTransitionPage {
       return SlideTransition(
         position: offsetTween.animate(
           CurvedAnimation(
+            reverseCurve: Curves.easeInOutCubic,
             curve: Curves.easeInOutCirc, // 如有需要，指定曲線
             parent: animation,
           ),

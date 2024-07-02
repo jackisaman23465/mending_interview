@@ -1,12 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'dataModel.dart';
+part of 'launchModel.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-DataModel _$DataModelFromJson(Map<String, dynamic> json) => DataModel()
+LaunchModel _$LaunchModelFromJson(Map<String, dynamic> json) => LaunchModel()
   ..flight_number = json['flight_number'] as num?
   ..mission_name = json['mission_name'] as String?
   ..mission_id = json['mission_id'] as List<dynamic>?
@@ -45,7 +45,8 @@ DataModel _$DataModelFromJson(Map<String, dynamic> json) => DataModel()
       : TimelineModel.fromJson(json['timeline'] as Map<String, dynamic>)
   ..crew = json['crew'] as List<dynamic>?;
 
-Map<String, dynamic> _$DataModelToJson(DataModel instance) => <String, dynamic>{
+Map<String, dynamic> _$LaunchModelToJson(LaunchModel instance) =>
+    <String, dynamic>{
       'flight_number': instance.flight_number,
       'mission_name': instance.mission_name,
       'mission_id': instance.mission_id,

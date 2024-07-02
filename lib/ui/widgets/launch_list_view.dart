@@ -3,18 +3,22 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 
+import '../../models/launchModel.dart';
 import 'launch_tile.dart';
 
-class LaunchListView extends ConsumerWidget {
-  final List filteredLaunchList;
-
-  // final ScrollController scrollController;
+class LaunchListView extends ConsumerStatefulWidget {
+  final List<LaunchModel> filteredLaunchList;
 
   const LaunchListView({
-    super.key,
+    Key? key,
     required this.filteredLaunchList,
-    // required this.scrollController,
-  });
+  }) : super(key: key);
+
+  @override
+  ConsumerState createState() => _LaunchListViewState();
+}
+
+class _LaunchListViewState extends ConsumerState<LaunchListView> with AutomaticKeepAliveClientMixin {
 
   String formatDate(String dateString) {
     DateTime dateTime = DateTime.parse(dateString).toLocal();
@@ -24,34 +28,29 @@ class LaunchListView extends ConsumerWidget {
   }
 
   @override
-  Widget build(BuildContext context, ref) {
-    // final itemCount = ref.watch(itemCountProvider);
-    // final displayList = filteredLaunchList.take(itemCount).toList();
+  Widget build(BuildContext context) {
+    super.build(context); // 必須調用 super.build(context)
 
     return ListView.builder(
-      prototypeItem: const LaunchTile(
-        flightNumber: 0,
-        missionPatchURL: "",
-        missionName: "",
-        launchDate: "",
-      ),
-      // controller: scrollController,
-      // itemCount: displayList.length,
-      itemCount: filteredLaunchList.length,
+      key: widget.key, // 使用 widget.key 作為 ListView 的 key
+      itemCount: widget.filteredLaunchList.length,
       itemBuilder: (context, index) {
-        // final data = displayList[index];
-        final data = filteredLaunchList[index];
+        final launch = widget.filteredLaunchList[index];
         return LaunchTile(
           key: UniqueKey(),
-          flightNumber: data.flight_number,
-          missionPatchURL: data.links?.mission_patch,
-          missionName: data.mission_name.toString(),
-          launchDate: formatDate(data.launch_date_utc.toString()),
+          heroTag: index,
+          flightNumber: launch.flight_number,
+          missionPatchUrl: launch.links?.mission_patch,
+          missionName: launch.mission_name.toString(),
+          launchDate: formatDate(launch.launch_date_utc.toString()),
           onTap: () {
-            context.push('/details', extra: data);
+            context.push('/$index/details', extra: launch);
           },
         );
       },
     );
   }
+
+  @override
+  bool get wantKeepAlive => true; // 返回 true 以保持狀態
 }

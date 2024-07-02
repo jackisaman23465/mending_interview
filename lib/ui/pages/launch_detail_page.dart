@@ -1,20 +1,25 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-
-import '../../models/dataModel.dart';
+import 'package:go_router/go_router.dart';
+import 'package:mending_interview/models/index.dart';
 
 class LaunchDetailPage extends StatelessWidget {
-  final DataModel data;
+  final int heroTag;
+  final LaunchModel launch;
 
-  const LaunchDetailPage({super.key, required this.data});
+  const LaunchDetailPage({
+    super.key,
+    required this.launch,
+    required this.heroTag,
+  });
 
   @override
   Widget build(BuildContext context) {
-    print(data.links?.mission_patch != null);
+    print(launch.links?.mission_patch != null);
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          data.mission_name ?? "null",
+          launch.mission_name ?? "null",
           style: const TextStyle(
             color: Colors.white,
           ),
@@ -26,25 +31,45 @@ class LaunchDetailPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Center(
-                child: data.links?.mission_patch != null && data.links!.mission_patch!.isNotEmpty
-                    ? CachedNetworkImage(
-                        imageUrl: data.links!.mission_patch!,
-                        fit: BoxFit.fitHeight,
-                        placeholder: (context, url) => const CircularProgressIndicator(),
-                        errorWidget: (context, url, error) => Image.asset(
-                          'assets/images/img_placeholder.png',
-                          fit: BoxFit.fitHeight,
-                        ),
-                      )
-                    : Image.asset(
-                        'assets/images/img_placeholder.png',
-                        fit: BoxFit.fitHeight,
+              InkWell(
+                onTap: () {
+                  context.push('/$heroTag/details/img', extra: launch.links?.mission_patch);
+                },
+                child: Center(
+                  child: Hero(
+                    tag: heroTag,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(8),
+                      child: Builder(
+                        builder: (context) {
+                          var missionPatchUrl = launch.links?.mission_patch;
+                          if (missionPatchUrl != null && missionPatchUrl.isNotEmpty) {
+                            return CachedNetworkImage(
+                              memCacheWidth: 300,
+                              memCacheHeight: 300,
+                              imageUrl: missionPatchUrl,
+                              fit: BoxFit.fitHeight,
+                              placeholder: (context, url) => const CircularProgressIndicator(),
+                              errorWidget: (context, url, error) => Image.asset(
+                                'assets/images/img_placeholder.png',
+                                fit: BoxFit.fitHeight,
+                              ),
+                            );
+                          } else {
+                            return Image.asset(
+                              'assets/images/img_placeholder.png',
+                              fit: BoxFit.fitHeight,
+                            );
+                          }
+                        },
                       ),
+                    ),
+                  ),
+                ),
               ),
               const SizedBox(height: 16.0),
               Text(
-                'Mission Name: ${data.mission_name}',
+                'Mission Name: ${launch.mission_name}',
                 style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -53,21 +78,21 @@ class LaunchDetailPage extends StatelessWidget {
               ),
               const SizedBox(height: 8.0),
               Text(
-                'Launch Date: ${data.launch_date_utc}',
+                'Launch Date: ${launch.launch_date_utc}',
                 style: const TextStyle(
                   color: Colors.white,
                 ),
               ),
               const SizedBox(height: 8.0),
               Text(
-                'Rocket Name: ${data.rocket?.rocket_name}',
+                'Rocket Name: ${launch.rocket?.rocket_name}',
                 style: const TextStyle(
                   color: Colors.white,
                 ),
               ),
               const SizedBox(height: 8.0),
               Text(
-                'Launch Site: ${data.launch_site?.site_name_long}',
+                'Launch Site: ${launch.launch_site?.site_name_long}',
                 style: const TextStyle(
                   color: Colors.white,
                 ),
@@ -83,7 +108,7 @@ class LaunchDetailPage extends StatelessWidget {
               ),
               const SizedBox(height: 8.0),
               Text(
-                data.details ?? 'No details available',
+                launch.details ?? 'No details available',
                 style: const TextStyle(
                   color: Colors.white,
                 ),

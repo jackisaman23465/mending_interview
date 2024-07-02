@@ -4,6 +4,11 @@ import 'package:mending_interview/ui/router/router.dart';
 import 'package:mending_interview/ui/theme/theme_data.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  // flutter imageCache 大小限制
+  PaintingBinding.instance.imageCache.maximumSize = 1000;
+  PaintingBinding.instance.imageCache.maximumSizeBytes = 300 << 20;
+
   runApp(const ProviderScope(child: MyApp()));
 }
 

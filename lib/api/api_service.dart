@@ -1,8 +1,5 @@
-import 'dart:convert';
 import 'package:dio/dio.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
-import '../../models/dataModel.dart';
+import 'package:mending_interview/models/index.dart';
 
 class ApiService {
   static const String _baseUrl = 'https://api.spacexdata.com/v3/launches';
@@ -10,12 +7,12 @@ class ApiService {
 
   ApiService(this._dio);
 
-  Future<List<DataModel>> fetchLaunches() async {
+  Future<List<LaunchModel>> fetchLaunches() async {
     try {
       final response = await _dio.get(_baseUrl);
-      final launches = List<DataModel>.from(response.data.map((d){
+      final launches = List<LaunchModel>.from(response.data.map((d){
         print(d);
-        return DataModel.fromJson(d);
+        return LaunchModel.fromJson(d);
       }));
       return launches;
     } catch (e) {
