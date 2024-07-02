@@ -1,0 +1,17 @@
+{
+  "reference_system?": "geocentric",
+  "regime?": "low-earth",
+  "longitude?": 78.5,
+  "lifespan_years?": 0,
+  "epoch?": "2020-12-21T02:41:06.000Z",
+  "mean_motion?": 14.84904616,
+  "raan?": 236.9673,
+  "semi_major_axis_km?": 6992.022,
+  "eccentricity?": 0.0012404,
+  "periapsis_km?": 605.214,
+  "apoapsis_km?": 622.56,
+  "inclination_deg?": 9.3453,
+  "period_min?": 96.975,
+  "arg_of_pericenter?": 85.029,
+  "mean_anomaly?": 275.1325
+}

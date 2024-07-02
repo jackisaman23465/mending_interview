@@ -1,0 +1,18 @@
+{
+  "webcast_liftoff?": 123,
+  "go_for_prop_loading?": -2280,
+  "rp1_loading?": -2100,
+  "stage1_lox_loading?": -2100,
+  "stage2_lox_loading?": -960,
+  "engine_chill?": -420,
+  "prelaunch_checks?": -60,
+  "propellant_pressurization?": -60,
+  "go_for_launch?": -45,
+  "ignition?": -3,
+  "liftoff?": 0,
+  "maxq?": 76,
+  "meco?": 174,
+  "stage_sep?": 176,
+  "second_stage_ignition?": 179,
+  "seco?": 476
+}

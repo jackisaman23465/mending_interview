@@ -1,0 +1,12 @@
+{
+  "core_serial?": "Merlin1A",
+  "flight?": 1,
+  "block?": 1,
+  "gridfins?": false,
+  "legs?": false,
+  "reused?": false,
+  "land_success?": false,
+  "landing_intent?": false,
+  "landing_type?": "Ocean",
+  "landing_vehicle?": "JRTI-1"
+}

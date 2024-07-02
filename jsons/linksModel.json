@@ -1,0 +1,14 @@
+{
+  "mission_patch?": "https://images2.imgbox.com/40/e3/GypSkayF_o.png",
+  "mission_patch_small?": "https://images2.imgbox.com/3c/0e/T8iJcSN3_o.png",
+  "reddit_campaign?": "https://www.reddit.com/r/spacex/comments/8pua1m/crs15_launch_campaign_thread/",
+  "reddit_launch?": "https://www.reddit.com/r/spacex/comments/8ugo3l/rspacex_crs15_official_launch_discussion_updates",
+  "reddit_recovery?": "https://www.reddit.com/r/spacex/comments/9xmpa7/eshail_2_recovery_thread/",
+  "reddit_media?": "https://www.reddit.com/r/spacex/comments/8ujcwo/rspacex_crs15_media_thread_videos_images_gifs/",
+  "presskit?": "http://www.spacex.com/sites/spacex/files/crs15presskit.pdf",
+  "article_link?": "https://www.space.com/2196-spacex-inaugural-falcon-1-rocket-lost-launch.html",
+  "wikipedia?": "https://en.wikipedia.org/wiki/DemoSat",
+  "video_link?": "https://www.youtube.com/watch?v=0a_00nJ_Y88",
+  "youtube_id?": "0a_00nJ_Y88",
+  "flickr_images?": "$[]String"
+}

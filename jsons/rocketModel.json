@@ -1,0 +1,8 @@
+{
+  "rocket_id?": "falcon1",
+  "rocket_name?": "Falcon 1",
+  "rocket_type?": "Merlin A",
+  "first_stage?": "$firstStageModel",
+  "second_stage?": "$secondStageModel",
+  "fairings?": "$fairingsModel"
+}

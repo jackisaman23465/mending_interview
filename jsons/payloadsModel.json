@@ -1,0 +1,13 @@
+{
+  "payload_id?": "FalconSAT-2",
+  "@JsonKey(name: 'norad_id') List<int>?": "norad_id",
+  "reused?": false,
+  "customers?": "$[]String",
+  "nationality?": "United States",
+  "manufacturer?": "SSTL",
+  "payload_type?": "Satellite",
+  "payload_mass_kg?": 20,
+  "payload_mass_lbs?": 43,
+  "orbit?": "LEO",
+  "orbit_params?": "$orbitParamsModel"
+}

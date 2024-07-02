@@ -1,0 +1,1 @@
+dart run json_model
